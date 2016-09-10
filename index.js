@@ -83,9 +83,9 @@ const logStream = through.obj(function (chunk, enc, done) {
   done()
 })
 
-module.exports = () => {
+module.exports = (function () {
   tape.createStream({ objectMode: true })
-      .pipe(logStream)
+        .pipe(logStream)  
 
   return tape
-}
+})
