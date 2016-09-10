@@ -1,3 +1,4 @@
+var tape = require('tape')
 var diff = require('diff')
 var through = require('through2')
 
@@ -82,7 +83,7 @@ const logStream = through.obj(function (chunk, enc, done) {
   done()
 })
 
-module.exports = (tape) => {
+module.exports = () => {
   tape.createStream({ objectMode: true })
       .pipe(logStream)
 
