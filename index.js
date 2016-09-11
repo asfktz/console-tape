@@ -10,7 +10,8 @@ const formatDiff = (row) => {
 
     else diffMethod = 'diffJson'
     
-    let res = diff[diffMethod](row.actual, row.expected)
+    var actual = (typeof row.actual === 'undefined') ? 'undefined' : row.actual
+    let res = diff[diffMethod](actual, row.expected)
 
     const output = res.reduce((output, part) => {
       let style
